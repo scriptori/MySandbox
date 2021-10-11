@@ -1,16 +1,29 @@
 package me.scriptori.test
 
 import org.junit.jupiter.api.Test
+import java.io.File
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 import me.scriptori.DriverController
 import me.scriptori.model.Driver
 import me.scriptori.model.Gender
+import me.scriptori.util.JsonUtil
 
 class DriverTest {
+    class TestDrivers(val drivers: List<Driver>)
 
     @Test
-    fun `Driver information using a list of Driver object model`() {
+    fun `Driver information using a list of Driver from json file`() {
+        val jsonFile = File("src/test/resources/assets/drivers.json")
+        assert(jsonFile.exists())
+        val ds = JsonUtil.fromJsonFile(jsonFile, TestDrivers::class.java).drivers
+        assert(ds.isNotEmpty())
+        val driversController = DriverController(ds)
+        verifyDriverData(driversController)
+    }
+
+    @Test
+    fun `Driver information using a list of Driver from object model`() {
         val driversController = DriverController(
             listOf(
                 Driver("John", 34, Gender.MALE),
@@ -19,6 +32,21 @@ class DriverTest {
                 Driver("Mary", 54, Gender.FEMALE)
             )
         )
+        verifyDriverData(driversController)
+    }
+
+    @Test
+    fun `Driver information using a list Driver from json string`() {
+        val jsonStr = "{\"drivers\": [{\"name\": \"John\",\"age\": 34,\"gender\": \"MALE\" }," +
+            "{\"name\": \"Claudio\",\"age\": 34,\"gender\": \"MALE\" }," +
+            "{\"name\": \"Paul\",\"age\": 67,\"gender\": \"MALE\" }," +
+            "{\"name\": \"Mary\",\"age\": 54,\"gender\": \"FEMALE\" }] }"
+        val ds = JsonUtil.fromJsonString(jsonStr, TestDrivers::class.java).drivers
+        val driversController = DriverController(ds)
+        verifyDriverData(driversController)
+    }
+
+    private fun verifyDriverData(driversController: DriverController) {
         // Assert the oldest age in the list
         assertEquals(67, driversController.oldestDriverAge)
         // Assert the youngest age in the list
@@ -38,41 +66,5 @@ class DriverTest {
                 - driversController.getDriversName(driversController.oldestDrivers)
                 - driversController.getDriversName(driversController.youngestDrivers)
         )
-    }
-
-    @Test
-    fun `Driver information using a list of names and age pairs`() {
-        val driversInfo = listOf("John" to 34, "Claudio" to 34, "Paul" to 67, "Mary" to 54)
-
-        val oldestDriver = driversInfo.maxByOrNull { it.second }
-        // Assert the oldest age in the list
-        assertEquals(67, oldestDriver?.second)
-        val youngestDriver = driversInfo.minByOrNull { it.second }
-        // Assert the youngest age in the list
-        assertEquals(34, youngestDriver?.second)
-
-        val oldestDrivers = driversInfo.filter {
-            it.second == oldestDriver?.second
-        }.map { it.first }
-        // Assert the first oldest drivers in the list
-        assertEquals("Paul", oldestDriver?.first)
-        // or
-        assertEquals("Paul", oldestDrivers.first())
-        // Assert all the youngest drivers in the list
-        assertContentEquals(listOf("Paul"), oldestDrivers)
-
-        val youngestDrivers = driversInfo.filter {
-            it.second == youngestDriver?.second
-        }.map { it.first }
-        // Assert the first youngest driver in the list
-        assertEquals("John", youngestDriver?.first)
-        // or
-        assertEquals("John", youngestDrivers.first())
-        // Assert all the youngest drivers in the list
-        assertContentEquals(listOf("John", "Claudio"), youngestDrivers)
-
-        // Assert the remaining drivers
-        assertContentEquals(listOf("Mary"), driversInfo.map { it.first }
-            - oldestDrivers - youngestDrivers)
     }
 }

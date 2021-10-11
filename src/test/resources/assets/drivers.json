@@ -1,0 +1,24 @@
+{
+  "drivers": [
+    {
+      "name": "John",
+      "age": 34,
+      "gender": "MALE"
+    },
+    {
+      "name": "Claudio",
+      "age": 34,
+      "gender": "MALE"
+    },
+    {
+      "name": "Paul",
+      "age": 67,
+      "gender": "MALE"
+    },
+    {
+      "name": "Mary",
+      "age": 54,
+      "gender": "FEMALE"
+    }
+  ]
+}

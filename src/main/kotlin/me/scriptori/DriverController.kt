@@ -1,5 +1,11 @@
 package me.scriptori
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStreamWriter
+import java.nio.file.Paths
 import me.scriptori.model.Driver
 
 class DriverController(var drivers: List<Driver>) {
@@ -22,11 +28,5 @@ class DriverController(var drivers: List<Driver>) {
 
     fun getDriversName(list: List<Driver>): List<String> {
         return list.map { it.name }
-    }
-
-    companion object {
-        fun getDriverList(jsonDescriptor: String): List<Driver> {
-            val gson: Gson
-        }
     }
 }
