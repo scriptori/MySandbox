@@ -3,22 +3,26 @@
     {
       "name": "John",
       "age": 34,
-      "gender": "MALE"
+      "gender": "MALE",
+      "type": "B"
     },
     {
       "name": "Claudio",
       "age": 34,
-      "gender": "MALE"
+      "gender": "MALE",
+      "type": "C"
     },
     {
       "name": "Paul",
       "age": 67,
-      "gender": "MALE"
+      "gender": "MALE",
+      "type": "B"
     },
     {
       "name": "Mary",
       "age": 54,
-      "gender": "FEMALE"
+      "gender": "FEMALE",
+      "type": "A"
     }
   ]
 }

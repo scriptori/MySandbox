@@ -7,6 +7,7 @@ import kotlin.test.assertEquals
 import me.scriptori.DriverController
 import me.scriptori.model.Driver
 import me.scriptori.model.Gender
+import me.scriptori.model.Type
 import me.scriptori.util.JsonUtil
 
 class DriverTest {
@@ -26,10 +27,10 @@ class DriverTest {
     fun `Driver information using a list of Driver from object model`() {
         val driversController = DriverController(
             listOf(
-                Driver("John", 34, Gender.MALE),
-                Driver("Claudio", 34, Gender.MALE),
-                Driver("Paul", 67, Gender.MALE),
-                Driver("Mary", 54, Gender.FEMALE)
+                Driver("John", 34, Gender.MALE, Type.B),
+                Driver("Claudio", 34, Gender.MALE, Type.C),
+                Driver("Paul", 67, Gender.MALE, Type.B),
+                Driver("Mary", 54, Gender.FEMALE, Type.A)
             )
         )
         verifyDriverData(driversController)
@@ -37,10 +38,12 @@ class DriverTest {
 
     @Test
     fun `Driver information using a list Driver from json string`() {
-        val jsonStr = "{\"drivers\": [{\"name\": \"John\",\"age\": 34,\"gender\": \"MALE\" }," +
-            "{\"name\": \"Claudio\",\"age\": 34,\"gender\": \"MALE\" }," +
-            "{\"name\": \"Paul\",\"age\": 67,\"gender\": \"MALE\" }," +
-            "{\"name\": \"Mary\",\"age\": 54,\"gender\": \"FEMALE\" }] }"
+        val jsonStr = "{\"drivers\": [" +
+            "{\"name\": \"John\",\"age\": 34,\"gender\": \"MALE\", \"type\": \"B\"}," +
+            "{\"name\": \"Claudio\",\"age\": 34,\"gender\": \"MALE\", \"type\": \"C\"}," +
+            "{\"name\": \"Paul\",\"age\": 67,\"gender\": \"MALE\", \"type\": \"B\"}," +
+            "{\"name\": \"Mary\",\"age\": 54,\"gender\": \"FEMALE\", \"type\": \"A\"}" +
+            "] }"
         val ds = JsonUtil.fromJsonString(jsonStr, TestDrivers::class.java).drivers
         val driversController = DriverController(ds)
         verifyDriverData(driversController)
@@ -66,5 +69,7 @@ class DriverTest {
                 - driversController.getDriversName(driversController.oldestDrivers)
                 - driversController.getDriversName(driversController.youngestDrivers)
         )
+        // Assert driver types
+        assertContentEquals(listOf("B", "C", "B", "A"), driversController.getTypes())
     }
 }

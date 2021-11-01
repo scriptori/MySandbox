@@ -23,4 +23,8 @@ class DriverController(var drivers: List<Driver>) {
     fun getDriversName(list: List<Driver>): List<String> {
         return list.map { it.name }
     }
+
+    fun getTypes(): List<String>? {
+        return drivers.map { it.type.name }
+    }
 }

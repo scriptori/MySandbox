@@ -1,5 +1,6 @@
 package me.scriptori.test
 
+import kotlin.math.pow
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -21,5 +22,6 @@ class FibonacciTest {
         // Asserting the results of the variation
         assertContentEquals(fib1, fib2)
         assertContentEquals(fib1, fib3)
+        println("2^8 = " + 2.0.pow(8))
     }
 }
