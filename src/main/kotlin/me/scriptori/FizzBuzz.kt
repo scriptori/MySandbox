@@ -1,4 +1,4 @@
-package me.scriptori.util
+package me.scriptori
 
 fun fizzBuzz(n: Int) {
     for (i in 1..n) {
