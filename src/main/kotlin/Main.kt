@@ -3,12 +3,12 @@ import me.scriptori.caesarCipher
 import me.scriptori.countingSort
 import me.scriptori.diagonalDifference
 import me.scriptori.findMedian
+import me.scriptori.fizzBuzz
 import me.scriptori.lonelyInteger
 import me.scriptori.miniMaxSum
 import me.scriptori.plusMinus
 import me.scriptori.sortResults
 import me.scriptori.timeConversion
-import me.scriptori.util.fizzBuzz
 
 //import me.scriptori.FibonacciSequence
 
