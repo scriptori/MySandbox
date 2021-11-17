@@ -1,4 +1,5 @@
 import me.scriptori.FibonacciSequence
+import me.scriptori.aVeryBigSum
 import me.scriptori.caesarCipher
 import me.scriptori.countingSort
 import me.scriptori.diagonalDifference
@@ -7,10 +8,10 @@ import me.scriptori.fizzBuzz
 import me.scriptori.lonelyInteger
 import me.scriptori.miniMaxSum
 import me.scriptori.plusMinus
+import me.scriptori.simpleArraySum
 import me.scriptori.sortResults
+import me.scriptori.staircase
 import me.scriptori.timeConversion
-
-//import me.scriptori.FibonacciSequence
 
 fun main() {
     println("========= FibonacciSequence ========")
@@ -59,4 +60,10 @@ fun main() {
     println("Sort Results = " + sortResults(ret2).joinToString(" "))
     println("=========== caesarCipher ===========")
     println(caesarCipher("There's a starman waiting in the sky", 3))
+    println("============= staircase ============")
+    staircase(6)
+    println("========== simpleArraySum ==========")
+    println(simpleArraySum(arrayOf(1, 2, 3, 4, 10, 11)))
+    println("============ aVeryBigSum ===========")
+    println(aVeryBigSum(arrayOf(1000000001, 1000000002, 1000000003, 1000000004, 1000000005)))
 }
