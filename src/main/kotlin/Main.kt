@@ -1,6 +1,8 @@
 import me.scriptori.FibonacciSequence
 import me.scriptori.aVeryBigSum
+import me.scriptori.birthdayCakesCandles
 import me.scriptori.caesarCipher
+import me.scriptori.compareTriplets
 import me.scriptori.countingSort
 import me.scriptori.diagonalDifference
 import me.scriptori.findMedian
@@ -66,4 +68,8 @@ fun main() {
     println(simpleArraySum(arrayOf(1, 2, 3, 4, 10, 11)))
     println("============ aVeryBigSum ===========")
     println(aVeryBigSum(arrayOf(1000000001, 1000000002, 1000000003, 1000000004, 1000000005)))
+    println("============ compareTriplets ===========")
+    println(compareTriplets(arrayOf(5, 6, 7), arrayOf(3, 6, 10)).joinToString(" "))
+    println("========= birthdayCakesCandles =========")
+    println(birthdayCakesCandles(arrayOf(3, 2, 1, 3)))
 }
