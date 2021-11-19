@@ -8,8 +8,10 @@ import me.scriptori.diagonalDifference
 import me.scriptori.findMedian
 import me.scriptori.fizzBuzz
 import me.scriptori.lonelyInteger
+import me.scriptori.makeMove
 import me.scriptori.miniMaxSum
 import me.scriptori.plusMinus
+import me.scriptori.resetTikTokToe
 import me.scriptori.simpleArraySum
 import me.scriptori.sortResults
 import me.scriptori.staircase
@@ -72,4 +74,34 @@ fun main() {
     println(compareTriplets(arrayOf(5, 6, 7), arrayOf(3, 6, 10)).joinToString(" "))
     println("========= birthdayCakesCandles =========")
     println(birthdayCakesCandles(arrayOf(3, 2, 1, 3)))
+    println("============= Tik Tok Toe ==============")
+    // The player 1 won in the row 1!
+    makeMove(1, arrayOf(1, 1))
+    makeMove(1, arrayOf(1, 2))
+    makeMove(1, arrayOf(1, 3))
+    // The player 1 won in the left to right diagonal!
+    resetTikTokToe()
+    makeMove(1, arrayOf(1, 1))
+    makeMove(1, arrayOf(2, 2))
+    makeMove(1, arrayOf(3, 3))
+    // The player 1 won in the right to left diagonal!
+    resetTikTokToe()
+    makeMove(1, arrayOf(1, 3))
+    makeMove(1, arrayOf(2, 2))
+    makeMove(1, arrayOf(3, 1))
+    // The player 2 won in the row 2!
+    resetTikTokToe()
+    makeMove(2, arrayOf(2, 1))
+    makeMove(2, arrayOf(2, 2))
+    makeMove(2, arrayOf(2, 3))
+    // The player 2 won in column 3!
+    resetTikTokToe()
+    makeMove(2, arrayOf(1, 3))
+    makeMove(2, arrayOf(2, 3))
+    makeMove(2, arrayOf(3, 3))
+    // The player 1 won in the right to left diagonal!
+    resetTikTokToe()
+    makeMove(2, arrayOf(1, 3))
+    makeMove(2, arrayOf(2, 2))
+    makeMove(2, arrayOf(3, 1))
 }
