@@ -22,16 +22,10 @@ player 1 wins
 // 0 0 0
 // 0 0 0
 // 0 0 0
-var r1 = Array(3) { 0 }
-var r2 = Array(3) { 0 }
-var r3 = Array(3) { 0 }
-var board = arrayOf(r1, r2, r3)
+var board = arrayOf(Array(3) { 0 }, Array(3) { 0 }, Array(3) { 0 })
 
 fun resetTikTokToe() {
-    r1 = Array(3) { 0 }
-    r2 = Array(3) { 0 }
-    r3 = Array(3) { 0 }
-    board = arrayOf(r1, r2, r3)
+    board = arrayOf(Array(3) { 0 }, Array(3) { 0 }, Array(3) { 0 })
 }
 
 fun makeMove(player: Int, position: Array<Int>) {
@@ -39,11 +33,7 @@ fun makeMove(player: Int, position: Array<Int>) {
     val p1 = position[1] - 1
 
     // store move
-    when (p0) {
-        0 -> if (r1[p1] == 0) r1[p1] = player
-        1 -> if (r2[p1] == 0) r2[p1] = player
-        2 -> if (r3[p1] == 0) r3[p1] = player
-    }
+    if (board[p0][p1] == 0) board[p0][p1] = player
 
     // see if anyone won
 
@@ -67,8 +57,8 @@ fun makeMove(player: Int, position: Array<Int>) {
     }
     // Diagonal left to right
     val l2r = Array(3) { 0 }
-    for (y in board.indices) {
-        l2r[y] = board[y][y]
+    for (i in board.indices) {
+        l2r[i] = board[i][i]
     }
     if (l2r.count { it == player } == 3) {
         println("The player $player won in the left to right diagonal!")
@@ -76,8 +66,8 @@ fun makeMove(player: Int, position: Array<Int>) {
     }
     // Diagonal right to left
     val r2l = Array(3) { 0 }
-    for (y in board.indices) {
-        r2l[y] = board[y][(board.size - 1) - y]
+    for (i in board.indices) {
+        r2l[i] = board[i][(board.size - 1) - i]
     }
     if (r2l.count { it == player } == 3) {
         println("The player $player won in the right to left diagonal!")
