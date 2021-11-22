@@ -102,6 +102,7 @@ fun main() {
     // The player 1 won in the right to left diagonal!
     resetTikTokToe()
     makeMove(2, arrayOf(1, 3))
+    makeMove(1, arrayOf(1, 3))
     makeMove(2, arrayOf(2, 2))
     makeMove(2, arrayOf(3, 1))
 }
