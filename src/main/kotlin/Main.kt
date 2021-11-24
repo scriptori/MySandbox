@@ -7,6 +7,7 @@ import me.scriptori.countingSort
 import me.scriptori.diagonalDifference
 import me.scriptori.findMedian
 import me.scriptori.fizzBuzz
+import me.scriptori.gradingStudents
 import me.scriptori.lonelyInteger
 import me.scriptori.makeMove
 import me.scriptori.miniMaxSum
@@ -74,6 +75,7 @@ fun main() {
     println(compareTriplets(arrayOf(5, 6, 7), arrayOf(3, 6, 10)).joinToString(" "))
     println("========= birthdayCakesCandles =========")
     println(birthdayCakesCandles(arrayOf(3, 2, 1, 3)))
+    println(birthdayCakesCandles(arrayOf(3, 3, 3, 3)))
     println("============= Tik Tok Toe ==============")
     // The player 1 won in the row 1!
     makeMove(1, arrayOf(1, 1))
@@ -105,4 +107,6 @@ fun main() {
     makeMove(1, arrayOf(1, 3))
     makeMove(2, arrayOf(2, 2))
     makeMove(2, arrayOf(3, 1))
+    println("=========== Grading Students ==========")
+    println(gradingStudents(arrayOf(73, 67, 38, 33)).joinToString("\n"))
 }
