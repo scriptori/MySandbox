@@ -12,6 +12,8 @@ class CalculationTest {
 
     @Test
     fun tailRecursiveTest() {
-        assertEquals(0.739085, findFixPoint(1.0))
+        assertEquals(0.739085, findFixPoint(1.0).round(6))
     }
 }
+
+fun Double.round(decimals: Int = 2): Double = "%.${decimals}f".format(this).toDouble()

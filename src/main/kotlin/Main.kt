@@ -1,8 +1,6 @@
 import me.scriptori.*
 
 fun main() {
-    println("============= plusMinus ============")
-    plusMinus(arrayOf(-4, 3, -9, 0, 4, 1))
     println("============= miniMaxSum ===========")
     miniMaxSum(arrayOf(1, 2, 3, 4, 5))
     println("=========== timeConversion =========")
