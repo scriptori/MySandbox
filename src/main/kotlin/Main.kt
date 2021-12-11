@@ -31,9 +31,6 @@ fun main() {
         )
     )
 
-    println("=========== caesarCipher ===========")
-    println(caesarCipher("There's a starman waiting in the sky", 3))
-
     println("============= staircase ============")
     staircase(6)
 
