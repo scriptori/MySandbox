@@ -1,13 +1,6 @@
 import me.scriptori.*
 
 fun main() {
-    println("========= FibonacciSequence ========")
-    val fib1 = (0..10).map(FibonacciSequence::fib1)
-    println("fib1 = $fib1")
-    val fib2 = (0..10).map(FibonacciSequence::fib2)
-    println("fib2 = $fib2")
-    val fib3 = (0..10).map(FibonacciSequence::fib3)
-    println("fib3 = $fib3")
     println("============= plusMinus ============")
     plusMinus(arrayOf(-4, 3, -9, 0, 4, 1))
     println("============= miniMaxSum ===========")
