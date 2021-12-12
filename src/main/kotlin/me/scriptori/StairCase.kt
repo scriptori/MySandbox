@@ -5,3 +5,7 @@ fun staircase(n: Int) {
         println(" ".repeat(it) + "#".repeat(n - it))
     }
 }
+
+fun main() {
+    staircase(15)
+}
